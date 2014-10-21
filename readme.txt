@@ -4,7 +4,7 @@ Donate link:
 Tags: frontend, frontier, wp-editor, tinymce, buttons, frontier-buttons
 Requires at least: 4.0.0
 Tested up to: 4.0.0
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPL v3 or later
  
 Adds Smileys, Table control, Search/Replace & Preview to WP Editor using tinyMCE standard plugins, from Wordpress version 4
@@ -62,7 +62,11 @@ Let me know what you think, and if you have enhancement requests or problems let
 
 == Changelog ==
 
-= 1.0.0 =
+= 1.0.2 =
+2014-10-21
+* Danish translation added
+
+= 1.0.1 =
 * 2014-10-19
 * Wrong name for settings menu - Collission with Frontier Post plugin
 

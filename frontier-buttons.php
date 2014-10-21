@@ -4,12 +4,12 @@ Plugin Name: Frontier Buttons
 Plugin URI: http://wordpress.org/extend/plugins/frontier-buttons/
 Description: Adds Smileys, Table control, Search/Replace & Preview to WP Editor using tinyMCE standard plugins, from Wordpress version 4
 Author: finnj
-Version: 1.0.1
+Version: 1.0.2
 Author URI: http://wordpress.org/extend/plugins/frontier-buttons/
 */
 
 // define constants
-define('FRONTIER_BUTTONS_VERSION', "1.0.0"); 
+define('FRONTIER_BUTTONS_VERSION', "1.0.2"); 
 
 
 //*************************************************************************
