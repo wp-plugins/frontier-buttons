@@ -2,15 +2,15 @@
 Contributors: finnj
 Donate link: 
 Tags: frontend, frontier, wp-editor, tinymce, buttons, frontier-buttons
-Requires at least: 4.0.0
-Tested up to: 4.0.0
+Requires at least: 3.9
+Tested up to: 4.0
 Stable tag: 1.0.2
 License: GPL v3 or later
  
-Adds Smileys, Table control, Search/Replace & Preview to WP Editor using tinyMCE standard plugins, from Wordpress version 4
+Control the button layout of your WP editor toolbar. Adds Smileys, Table control, Search/Replace & Preview to WP Editor using tinyMCE standard plugins, from Wordpress version 4.
   
 == Description ==
-Adds Smileys, Table control, Search/Replace & Preview to WP Editor using tinyMCE standard plugins, from Wordpress version 4
+Control the button layout of your WP editor toolbar. Adds Smileys, Table control, Search/Replace & Preview to WP Editor using tinyMCE standard plugins, from Wordpress version 4.
 
 Frontier Buttons is intentionally made simple :)
 
@@ -20,12 +20,11 @@ Frontier Buttons is intentionally made simple :)
 * Table Control
 * Smileys (emoticons)
 * Search & Replace
-* Wordcount
-* Only works from Wordpress version 4
+* Only works from Wordpress version 3.9
 
-This plugin has been created to separate the tinyMCE editor option from [Frontier Post plugin ](http://wordpress.org/plugins/frontier-post/) 
+This plugin has been created to separate the tinyMCE editor options from [Frontier Post plugin ](http://wordpress.org/plugins/frontier-post/) 
 
-The plugin is simple, and only enables tinyMCE standard plugins and control - If you want a more sophisticated plugin you should look at [WP Edit plugin ](http://wordpress.org/plugins/wp-edit/) 
+The plugin is simple with no custom js, and only enables tinyMCE standard plugins and controls - If you want a more sophisticated plugin you should look at [WP Edit plugin ](http://wordpress.org/plugins/wp-edit/) 
 
 = Translations =
 * Danish

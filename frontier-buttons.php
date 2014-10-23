@@ -1,15 +1,15 @@
 <?php
 /*
 Plugin Name: Frontier Buttons
-Plugin URI: http://wordpress.org/extend/plugins/frontier-buttons/
-Description: Adds Smileys, Table control, Search/Replace & Preview to WP Editor using tinyMCE standard plugins, from Wordpress version 4
+Plugin URI: http://wordpress.org/plugins/frontier-buttons/
+Description: Control and organize the button layout of your WP editor toolbar. Adds Smileys, Table control, Search/Replace & Preview to WP Editor using tinyMCE standard plugins, works from Wordpress version 3.9
 Author: finnj
-Version: 1.0.2
-Author URI: http://wordpress.org/extend/plugins/frontier-buttons/
+Version: 1.0.3
+Author URI: http://wordpress.org/plugins/frontier-buttons/
 */
 
 // define constants
-define('FRONTIER_BUTTONS_VERSION', "1.0.2"); 
+define('FRONTIER_BUTTONS_VERSION', "1.0.3"); 
 
 
 //*************************************************************************
