@@ -7,10 +7,11 @@ Tested up to: 4.0
 Stable tag: 1.0.2
 License: GPL v3 or later
  
-Control the button layout of your WP editor toolbar. Adds Smileys, Table control, Search/Replace & Preview to WP Editor using tinyMCE standard plugins, from Wordpress version 4.
-  
+Control and organize the button layout of your WP editor toolbar. Adds Smileys, Table control, Search/Replace & Preview to WP Editor using tinyMCE standard plugins, works from Wordpress version 3.9
+
 == Description ==
-Control the button layout of your WP editor toolbar. Adds Smileys, Table control, Search/Replace & Preview to WP Editor using tinyMCE standard plugins, from Wordpress version 4.
+
+Control and organize the button layout of your WP editor toolbar. Adds Smileys, Table control, Search/Replace & Preview to WP Editor using tinyMCE standard plugins, works from Wordpress version 3.9
 
 Frontier Buttons is intentionally made simple :)
 
