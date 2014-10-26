@@ -4,7 +4,7 @@ Donate link:
 Tags: frontend, frontier, wp-editor, tinymce, buttons, frontier-buttons
 Requires at least: 3.9
 Tested up to: 4.0
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GPL v3 or later
  
 Control and organize the button layout of your WP editor toolbar. Adds Smileys, Table control, Search/Replace & Preview to WP Editor using tinyMCE standard plugins, works from Wordpress version 3.9
@@ -62,8 +62,8 @@ Let me know what you think, and if you have enhancement requests or problems let
 
 == Changelog ==
 
-= 1.0.2 =
-2014-10-21
+= 1.0.3 =
+2014-10-25
 * Danish translation added
 
 = 1.0.1 =
