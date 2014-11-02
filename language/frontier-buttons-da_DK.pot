@@ -4,154 +4,191 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Frontier Buttons 1.0.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/frontier-buttons\n"
-"POT-Creation-Date: 2014-10-21 05:52:54+00:00\n"
+"POT-Creation-Date: 2014-11-02 13:11:12+00:00\n"
+"PO-Revision-Date: 2014-11-02 14:15+0100\n"
+"Last-Translator: \n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: da_DK\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2014-10-21 08:12+0100\n"
-"Last-Translator: \n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Generator: Poedit 1.6.10\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Language: da_DK\n"
 
-#: frontier-buttons-defaults.php:58
+#: frontier-buttons-defaults.php:7
+msgid "Full Editor"
+msgstr "Fuld editor"
+
+#: frontier-buttons-defaults.php:7
+msgid "Minimal Visual"
+msgstr "Minimal Visuel"
+
+#: frontier-buttons-defaults.php:7
+msgid "Minimal-Html"
+msgstr "Minimal-HTML"
+
+#: frontier-buttons-defaults.php:7
+msgid "Text Only"
+msgstr "Kun tekst"
+
+#: frontier-buttons-defaults.php:68 frontier-buttons-defaults.php:124
 msgid "(Empty)"
 msgstr "(Tom)"
 
-#: frontier-buttons-defaults.php:59
+#: frontier-buttons-defaults.php:69 frontier-buttons-defaults.php:125
 msgid "Bold"
 msgstr "Fed"
 
-#: frontier-buttons-defaults.php:60
+#: frontier-buttons-defaults.php:70 frontier-buttons-defaults.php:126
 msgid "Italic"
 msgstr "Kursiv"
 
-#: frontier-buttons-defaults.php:61
+#: frontier-buttons-defaults.php:71 frontier-buttons-defaults.php:127
 msgid "Strike through"
 msgstr "Overstreget"
 
-#: frontier-buttons-defaults.php:62
+#: frontier-buttons-defaults.php:72 frontier-buttons-defaults.php:128
 msgid "Bullit list"
 msgstr "Punkt liste"
 
-#: frontier-buttons-defaults.php:63
+#: frontier-buttons-defaults.php:73 frontier-buttons-defaults.php:129
 msgid "Numeric list"
 msgstr "Numerisk liste"
 
-#: frontier-buttons-defaults.php:64
+#: frontier-buttons-defaults.php:74 frontier-buttons-defaults.php:130
 msgid "Block quote"
 msgstr "Anførsels tegn"
 
-#: frontier-buttons-defaults.php:65
+#: frontier-buttons-defaults.php:75 frontier-buttons-defaults.php:131
 msgid "Align left"
 msgstr "Juster Venstre"
 
-#: frontier-buttons-defaults.php:66
+#: frontier-buttons-defaults.php:76 frontier-buttons-defaults.php:132
 msgid "Align center"
 msgstr "Juster center"
 
-#: frontier-buttons-defaults.php:67
+#: frontier-buttons-defaults.php:77 frontier-buttons-defaults.php:133
 msgid "Align right"
 msgstr "Juster højre"
 
-#: frontier-buttons-defaults.php:68
+#: frontier-buttons-defaults.php:78 frontier-buttons-defaults.php:134
 msgid "Link"
 msgstr "Link"
 
-#: frontier-buttons-defaults.php:69
+#: frontier-buttons-defaults.php:79 frontier-buttons-defaults.php:135
 msgid "Un-Link"
 msgstr "Fjern Link"
 
-#: frontier-buttons-defaults.php:70
+#: frontier-buttons-defaults.php:80
 msgid "WP More"
 msgstr "WP mere"
 
-#: frontier-buttons-defaults.php:71
+#: frontier-buttons-defaults.php:81
 msgid "Toolbar toggle"
 msgstr "Værktøjsliner vis"
 
-#: frontier-buttons-defaults.php:72
+#: frontier-buttons-defaults.php:82 frontier-buttons-defaults.php:136
 msgid "Full Screen"
 msgstr "Fuld skærm"
 
-#: frontier-buttons-defaults.php:73
+#: frontier-buttons-defaults.php:83
 msgid "HR"
 msgstr "HR"
 
-#: frontier-buttons-defaults.php:74
+#: frontier-buttons-defaults.php:84 frontier-buttons-defaults.php:137
 msgid "Format select"
 msgstr "Format"
 
-#: frontier-buttons-defaults.php:75
+#: frontier-buttons-defaults.php:85 frontier-buttons-defaults.php:138
 msgid "Underline"
 msgstr "Understreg"
 
-#: frontier-buttons-defaults.php:76
+#: frontier-buttons-defaults.php:86 frontier-buttons-defaults.php:139
 msgid "Align justify"
 msgstr "Juster"
 
-#: frontier-buttons-defaults.php:77
+#: frontier-buttons-defaults.php:87 frontier-buttons-defaults.php:140
 msgid "Forecolor"
 msgstr "Forgrunds farve"
 
-#: frontier-buttons-defaults.php:78
+#: frontier-buttons-defaults.php:88 frontier-buttons-defaults.php:141
 msgid "Background color"
 msgstr "Bagrunds farve"
 
-#: frontier-buttons-defaults.php:79
+#: frontier-buttons-defaults.php:89 frontier-buttons-defaults.php:142
 msgid "Paste"
 msgstr "Indsæt"
 
-#: frontier-buttons-defaults.php:80
+#: frontier-buttons-defaults.php:90 frontier-buttons-defaults.php:143
 msgid "Remove format"
 msgstr "Fjern format"
 
-#: frontier-buttons-defaults.php:81
+#: frontier-buttons-defaults.php:91
 msgid "Character map"
 msgstr "Symboler"
 
-#: frontier-buttons-defaults.php:82
+#: frontier-buttons-defaults.php:92 frontier-buttons-defaults.php:144
 msgid "Outdent"
 msgstr "Ryk ud"
 
-#: frontier-buttons-defaults.php:83
+#: frontier-buttons-defaults.php:93 frontier-buttons-defaults.php:145
 msgid "Indent"
 msgstr "Indryk"
 
-#: frontier-buttons-defaults.php:84
+#: frontier-buttons-defaults.php:94 frontier-buttons-defaults.php:146
 msgid "Undo"
 msgstr "Fortryd"
 
-#: frontier-buttons-defaults.php:85
+#: frontier-buttons-defaults.php:95 frontier-buttons-defaults.php:147
 msgid "Redo"
 msgstr "Gentag"
 
-#: frontier-buttons-defaults.php:86
+#: frontier-buttons-defaults.php:96
 msgid "WP Help"
 msgstr "WP hjælp"
 
-#: frontier-buttons-defaults.php:87
+#: frontier-buttons-defaults.php:97 frontier-buttons-defaults.php:148
 msgid "Font select"
 msgstr "Skrifttype"
 
-#: frontier-buttons-defaults.php:88
+#: frontier-buttons-defaults.php:98 frontier-buttons-defaults.php:149
 msgid "Font size"
 msgstr "Skrift størrelse"
 
-#: frontier-buttons-defaults.php:89
+#: frontier-buttons-defaults.php:99
+#, fuzzy
+msgid "Style Select"
+msgstr "Skrifttype"
+
+#: frontier-buttons-defaults.php:100
+msgid "Page break"
+msgstr "Side skift"
+
+#: frontier-buttons-defaults.php:101
+msgid "Subscript"
+msgstr "Subscript"
+
+#: frontier-buttons-defaults.php:102
+msgid "Superscript"
+msgstr "Superscript"
+
+#: frontier-buttons-defaults.php:103
+msgid "Separator"
+msgstr "Separator"
+
+#: frontier-buttons-defaults.php:109
 msgid "Smileys"
 msgstr "Smileys"
 
-#: frontier-buttons-defaults.php:90
+#: frontier-buttons-defaults.php:110
 msgid "Search Replace"
 msgstr "Søg/Erstat"
 
-#: frontier-buttons-defaults.php:91
+#: frontier-buttons-defaults.php:111
 msgid "Table"
 msgstr "Tabel"
 
-#: frontier-buttons-defaults.php:92
+#: frontier-buttons-defaults.php:112
 msgid "Preview"
 msgstr "Vis eksempel"
 
@@ -159,28 +196,52 @@ msgstr "Vis eksempel"
 msgid "You do not have sufficient permissions to access this page."
 msgstr "Du har ikke de nødvendige rettigheder til at se denne side"
 
-#: settings-menu.php:55
+#: settings-menu.php:72
 msgid "Settings saved."
 msgstr "Øndringer er gemt"
 
-#: settings-menu.php:64
+#: settings-menu.php:99
 msgid "Frontier Editor Buttons Settings"
 msgstr "Frontier Editor Buttons Opsæting"
 
-#: settings-menu.php:71
+#: settings-menu.php:106
+msgid "Enable editor for comments"
+msgstr "Aktiver editor for kommentarer"
+
+#: settings-menu.php:108
+msgid "Editor for comments only for logged in users"
+msgstr "Editor for kommentarer men kun for indloggede brugere"
+
+#: settings-menu.php:111
+msgid "Use visual editor for comments"
+msgstr "Brug visual editor for kommentarer"
+
+#: settings-menu.php:114
+msgid "Editor lines for comments"
+msgstr "Antal editor linier"
+
+#: settings-menu.php:121
 msgid "WP editor toolbar setup"
 msgstr "WP Editor værktøjlinie opsætning"
 
-#: settings-menu.php:74 settings-menu.php:75 settings-menu.php:76
-#: settings-menu.php:77
+#: settings-menu.php:124 settings-menu.php:125 settings-menu.php:126
+#: settings-menu.php:127 settings-menu.php:128
 msgid "Toolbar"
 msgstr "Værktøjslinie"
 
-#: settings-menu.php:142
+#: settings-menu.php:244
+msgid "Full editor unused buttons"
+msgstr "Fuld editor ubrugte knapper"
+
+#: settings-menu.php:247
+msgid "Simple editor unused buttons"
+msgstr "Simpel editor ubrugte knapper"
+
+#: settings-menu.php:253
 msgid "Save Changes"
 msgstr "Gem ændringer"
 
-#: settings-menu.php:148
+#: settings-menu.php:259
 msgid ""
 "This is a sample of the editor, new button layout wont show until you save"
 msgstr ""
@@ -193,13 +254,15 @@ msgstr ""
 
 #. Plugin URI of the plugin/theme
 #. Author URI of the plugin/theme
-msgid "http://wordpress.org/extend/plugins/frontier-buttons/"
+msgid "http://wordpress.org/plugins/frontier-buttons/"
 msgstr ""
 
 #. Description of the plugin/theme
+#, fuzzy
 msgid ""
-"Adds Smileys, Table control, Search/Replace & Preview to WP Editor using "
-"tinyMCE standard plugins, from Wordpress version 4"
+"Control and organize the button layout of your WP editor toolbar. Adds "
+"Smileys, Table control, Search/Replace & Preview to WP Editor using tinyMCE "
+"standard plugins. Use visual editor for comments - works from WP 3.9"
 msgstr ""
 "Tilføjer Smileys, Tabel kontrol, Søg/Erstat og Vis eksempel til WP editoren. "
 "Bruger tinyMCE standard plugins - Fra Wordpress 4"
