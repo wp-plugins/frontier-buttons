@@ -26,13 +26,30 @@ function frontier_buttons_settings_page()
 			{
 				
 				// get form data, and save it
+				$bsettings_save = array(
+							'visual_editor' 		=> (isset($_POST[ "btn_visual_editor_enable"]) 		? $_POST[ "btn_visual_editor_enable"] 	: false),
+							'editor_lines'			=> (isset($_POST[ "btn_cmt_editor_lines"]) 		? $_POST[ "btn_cmt_editor_lines"] 			: 5),
+							'enable_comment_editor'	=> (isset($_POST[ "btn_comment_editor_enable"]) ? $_POST[ "btn_comment_editor_enable"] 		: false),
+							'comment_editor_login'	=> (isset($_POST[ "btn_comments_editor_login"]) ? $_POST[ "btn_comments_editor_login"] 		: false),
+							'enable_teeny_editor'	=> (isset($_POST[ "btn_teeny_enable"]) 			? $_POST[ "btn_teeny_enable"] 				: false)
+							);
+			
+				update_option("frontier_buttons_settings", $bsettings_save);
+				/*
+				print_r("</br>after save");
+				print_r("</br>");
+				print_r("comment editor: ");
+				print_r($bsettings_save['comment_editor_type']);
+				print_r("</br>");
+				print_r($_POST[ "btn_comment_editor_type"]);
+				print_r("</br>");
+				*/
 				
-				
-				//get the button table values
+				//Setup buttons
 				$tmp_buttons 	= array();
 				
-				// loop through the 4 toolbars
-				for ($b=0; $b<=3; $b++)
+				// loop through the 6 toolbars
+				for ($b=0; $b<=5; $b++)
 					{
 					$tmp_buttons[$b] 	= array();
 					
@@ -57,8 +74,26 @@ function frontier_buttons_settings_page()
 			}
 		
 		
+		// load settings
+		$bsettings		= get_option("frontier_buttons_settings") ? get_option("frontier_buttons_settings") : $std_frontier_settings ;
+			
+		$btn_visual_editor_enable	=	$bsettings['visual_editor'] ;
+		$btn_cmt_editor_lines 		=	$bsettings['editor_lines'] ? $bsettings['editor_lines'] : 5;
+		$btn_comment_editor_enable 	=	$bsettings['enable_comment_editor'];
+		$btn_comment_editor_type	=	$bsettings['comment_editor_type'] ? $bsettings['comment_editor_type'] : 'minimal-visual';
+		$btn_comments_editor_login 	=	$bsettings['comment_editor_login'] ? $bsettings['comment_editor_login'] : true;
+		$btn_teeny_enable 			=	$bsettings['enable_teeny_editor'];
+		/*
+		print_r("</br>after load of settings</br>");
+		print_r("comment editor: ");
+		print_r($btn_comment_editor_type);
+		print_r("</br>");
+		print_r("Editor types: ");
+		print_r($editor_types);
+		print_r("</br>");
+		*/
 		?>
-	
+		
 		<div class="wrap">
 		<div class="frontier-admin-menu">
 		<h2><?php _e("Frontier Editor Buttons Settings", "frontier-buttons") ?></h2>
@@ -67,38 +102,83 @@ function frontier_buttons_settings_page()
 			<input type="hidden" name="frontier_isupdated_hidden" value="Y">
 			
 			<table border="1">
+				<tr>
+					<td><?php _e("Enable editor for comments", "frontier-buttons"); ?>:</td>
+					<td><center><input type="checkbox" name="btn_comment_editor_enable" value="true" <?php echo ($btn_comment_editor_enable == "true") ? 'checked':''; ?>></center></td>
+					<td><?php _e("Editor for comments only for logged in users", "frontier-buttons"); ?>:</td>
+					<td><center><input type="checkbox" name="btn_comments_editor_login" value="true" <?php echo ($btn_comments_editor_login == "true") ? 'checked':''; ?>></center></td>
+				</tr><tr>
+					<td><?php _e("Use visual editor for comments", "frontier-buttons"); ?>:</td>
+					<td><center><input type="checkbox" name="btn_visual_editor_enable" value="true" <?php echo ($btn_visual_editor_enable == "true") ? 'checked':''; ?>></center></td>
+					
+					<td><?php _e("Editor lines for comments", "frontier-buttons");?>:</td>
+					<td><input type="text" name="btn_cmt_editor_lines" value="<?php echo $btn_cmt_editor_lines; ?>" /></td>
+				</tr>
+			</table>
+			</br>
+			<table border="1">
 					<tr>
 					<th colspan="8"></center><?php _e("WP editor toolbar setup", "frontier-buttons"); ?></center></th>
 					<tr></tr>
 					<tr></tr>
-						<th width="25%"><?php _e("Toolbar", "frontier-buttons"); ?> 1</th>
-						<th width="25%"><?php _e("Toolbar", "frontier-buttons"); ?> 2</th>
-						<th width="25%"><?php _e("Toolbar", "frontier-buttons"); ?> 3</th>
-						<th width="25%"><?php _e("Toolbar", "frontier-buttons"); ?> 4</th>
-					
+						<th width="20%"><?php _e("Toolbar", "frontier-buttons"); ?> 1</th>
+						<th width="20%"><?php _e("Toolbar", "frontier-buttons"); ?> 2</th>
+						<th width="20%"><?php _e("Toolbar", "frontier-buttons"); ?> 3</th>
+						<th width="20%"><?php _e("Toolbar", "frontier-buttons"); ?> 4</th>
+						<th width="20%"><?php _e("Toolbar", "frontier-buttons"); ?> </br>Simple</th>
 					</tr>
 					
 			<?php
 			
 			//Build table based on values from options
 			
-			$buttonlist = $frontier_buttons;
 			
-	
 			
 			//$stdbuttons  	= array( $std_frontier_buttons1, $std_frontier_buttons2, $std_frontier_buttons3,	$std_frontier_buttons4);
-			$stdbuttons 	= get_option("frontier_buttons_toolbars"); 
-						
+			$stdbuttons 		= get_option("frontier_buttons_toolbars"); 
+			$not_used_full		= $frontier_buttons;
+			$not_used_teeny		= $frontier_teeny_buttons;
+			/*
+			$used_buttons 		= array_merge($stdbuttons[0], $stdbuttons[1], $stdbuttons[2] );
+			$used_buttons 		= array_merge($used_buttons, $stdbuttons[3]);
+			$tmp_std_buttons 	= array_keys($frontier_buttons);
+			$not_used_buttons 	= array_diff($used_buttons, $tmp_std_buttons);
+			
+			print_r("--standard buttons:");
+			print_r($tmp_std_buttons);
+			print_r("</br>");
+			
+			//$xx = array_flip($frontier_buttons);
+			//$yy = array_values($xx);
+			//$yy = array_keys($frontier_buttons);
+			//$yy = array_values($xx);
+			
+			//print_r("--standard cleaned buttons:");
+			//print_r($yy);
+			//print_r("</br>");
+			
+			print_r("--Used buttons:");
+			print_r($used_buttons);
+			print_r("</br>");
+			
+			print_r("--Unused buttons:");
+			print_r($not_used_buttons);
+			print_r("</br>");
+			*/
+				
 			
 			//build 20 button placeholders for each tool bar
 			for ($x=0; $x<=19; $x++)
 				{
 				?><tr><?php
 				
-				//loop through the 4 toolbars
-				for ($b=0; $b<=3; $b++)
+				//loop through the 6 toolbars
+				for ($b=0; $b<=4; $b++)
 					{
 					$tmp_value = "";
+					if( (!isset($stdbuttons[$b])) || (!is_array($stdbuttons[$b])) )
+						$stdbuttons[$b] = array();
+						
 					$btnlist = $stdbuttons[$b];
 					
 					if (isset($btnlist[$x]) && ($btnlist[$x] > ""))
@@ -113,11 +193,15 @@ function frontier_buttons_settings_page()
 					// output cell
 					$tmp_name		= 'frontier_btn_'.$b.'_'.$x;
 					
-					
+					//for teeny simple editor, only standard buttons are available
+					if ($b<=3)
+						$dropdown_buttons = $frontier_buttons;
+					else
+						$dropdown_buttons = $frontier_teeny_buttons;
 					?>
 					<td>
 					<select  id="<?php echo $tmp_name ?>" name="<?php echo $tmp_name ?>" >
-						<?php foreach($frontier_buttons as $id => $desc) : ?>   
+						<?php foreach($dropdown_buttons as $id => $desc) : ?>   
 								<option value='<?php echo $id ?>' <?php echo ( $id == $tmp_value) ? "selected='selected'" : ' ';?>>
 									<?php echo $desc; ?>
 								</option>
@@ -126,17 +210,44 @@ function frontier_buttons_settings_page()
 					</td>
 					<?php
 					
+					//Remove the button from the unused buttons for later display
+					if ($b<=3)
+						unset($not_used_full[$tmp_value]);
+					if ($b<=4)
+						unset($not_used_teeny[$tmp_value]);
+					
 					}
 				?></tr><?php
 				
 				
 				}
+				
 			
 			?>
 			
 			</table>
+			<?php
 			
+			/*
+			print_r("--Unused buttons full:--");
+			print_r(implode(", ", array_values($not_used_full)));
+			print_r("</br>");
+			print_r("--Unused buttons teeny:--");
+			print_r($not_used_teeny);
+			print_r("</br>");
+			*/
+			
+			?>
 			<br/>
+			<table border="1">
+				<tr>
+					<td><?php _e("Full editor unused buttons"); ?></td>
+					<td><?php echo(implode(", ", array_values($not_used_full))); ?></td>
+				</tr><tr>
+					<td><?php _e("Simple editor unused buttons"); ?></td>
+					<td><?php echo implode(", ", array_values($not_used_teeny)); ?></td>
+				</tr>
+			</table>
 			<br/>
 			<p class="submit">
 				<input type="submit" name="Submit" class="button-primary" value="<?php esc_attr_e('Save Changes') ?>" />

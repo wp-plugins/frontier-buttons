@@ -7,20 +7,19 @@ Tested up to: 4.0
 Stable tag: 1.0.3
 License: GPL v3 or later
  
-Control and organize the button layout of your WP editor toolbar. Adds Smileys, Table control, Search/Replace & Preview to WP Editor using tinyMCE standard plugins, works from Wordpress version 3.9
+Control and organize the button layout of your WP editor toolbar. Adds Smileys, Table control, Search/Replace & Preview to WP Editor using tinyMCE standard plugins. Use visual editor for comments - works from WP 3.9
 
 == Description ==
 
-Control and organize the button layout of your WP editor toolbar. Adds Smileys, Table control, Search/Replace & Preview to WP Editor using tinyMCE standard plugins, works from Wordpress version 3.9
-
 Frontier Buttons is intentionally made simple :)
-
 
 = Main Features =
 * Enable to design your own toolbar setup for your site.
-* Table Control
-* Smileys (emoticons)
-* Search & Replace
+* Enable visual editor for comments
+* The following tinyMCE moduls added to Wordpresss 
+** Table Control
+** Smileys (emoticons)
+** Search & Replace
 * Only works from Wordpress version 3.9
 
 This plugin has been created to separate the tinyMCE editor options from [Frontier Post plugin ](http://wordpress.org/plugins/frontier-post/) 
@@ -62,16 +61,22 @@ Let me know what you think, and if you have enhancement requests or problems let
 
 == Changelog ==
 
+
+= 1.2.0 =
+* Will respect buttons inserted by other plugins (they will be added at the end of toolbar they were placed)
+* Show unused buttons on settings page
+
+= 1.1.0 =
+* Use WP editor for comments (optional)
+* Change Teeny buttons (the simple editor)
+
 = 1.0.3 =
-2014-10-25
 * Danish translation added
 
 = 1.0.1 =
-* 2014-10-19
 * Wrong name for settings menu - Collission with Frontier Post plugin
 
 = 1.0.0 =
-* 2014-10-17
 * Initial Version
 * Editor buttons moved from plugin Frontier Post to separate tinyMCE functions in separate plugin
 
