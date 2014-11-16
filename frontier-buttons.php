@@ -4,12 +4,12 @@ Plugin Name: Frontier Buttons
 Plugin URI: http://wordpress.org/plugins/frontier-buttons/
 Description: Control and organize the button layout of your WP editor toolbar. Adds Smileys, Table control, Search/Replace & Preview to WP Editor using tinyMCE standard plugins. Use visual editor for comments - works from WP 3.9
 Author: finnj
-Version: 1.2.0
+Version: 1.2.1
 Author URI: http://wordpress.org/plugins/frontier-buttons/
 */
 
 // define constants
-define('FRONTIER_BUTTONS_VERSION', "1.2.0"); 
+define('FRONTIER_BUTTONS_VERSION', "1.2.1"); 
 
 
 //*************************************************************************
@@ -157,44 +157,7 @@ function frontier_buttons_comments_editor( $fields )
 			$btn_quicktags_enable	 	=	($bsettings['visual_editor'] == true) ? false : true; 
 			$btn_cmt_editor_lines 		=	$bsettings['editor_lines'] ? $bsettings['editor_lines'] : 5;
 			$btn_teeny_enable 			=	$bsettings['enable_teeny_editor'] ? $bsettings['enable_teeny_editor'] : false;
-			$btn_comment_editor_type	=	$bsettings['comment_editor_type'] ? $bsettings['comment_editor_type'] : 'minimal-visual';
-			/*
-			$editor_layout		 		= array('dfw' => false, 'textarea_rows' => $btn_cmt_editor_lines  );
-			$tmp = array();
-			// error_log("Editor type: ");
-			// error_log($btn_comment_editor_type);
-			if ($btn_comment_editor_type == "full")
-				{
-				$custom_buttons 	= get_option("frontier_buttons_toolbars"); 
-				$tinymce_options = array(
-					'theme_advanced_buttons1' 	=> ($custom_buttons[0] ? $custom_buttons[0] : ''),
-					'theme_advanced_buttons2' 	=> ($custom_buttons[1] ? $custom_buttons[1] : ''),
-					'theme_advanced_buttons3' 	=> ($custom_buttons[2] ? $custom_buttons[2] : ''),
-					'theme_advanced_buttons4' 	=> ($custom_buttons[3] ? $custom_buttons[3] : '')
-					);
-	
-				$tmp = array('tinymce' => $tinymce_options);
-				}
-
-			if ($btn_comment_editor_type == "minimal-visual")
-				$tmp = array('teeny' => true, 'quicktags' => false);
-		
-			if ($btn_comment_editor_type == "minimal-html")
-				$tmp = array('teeny' => true, 'tinymce' => false);
-		
-			if ($btn_comment_editor_type == "text")	
-				$tmp = array('quicktags' => false, 'tinymce' =>false);
-		
-			$editor_layout = array_merge($editor_layout, $tmp);
-			ob_start();
-			wp_editor( 
-				'', 
-				'comment', 
-				$editor_layout
-			);
-			$fields['comment_field'] = ob_get_clean();
-			return $fields;
-			*/
+			
 			ob_start();
 			wp_editor( '', 'comment', array(
 			'teeny' 		=> true,
