@@ -80,7 +80,7 @@ function frontier_buttons_settings_page()
 		$btn_visual_editor_enable	=	$bsettings['visual_editor'] ;
 		$btn_cmt_editor_lines 		=	$bsettings['editor_lines'] ? $bsettings['editor_lines'] : 5;
 		$btn_comment_editor_enable 	=	$bsettings['enable_comment_editor'];
-		$btn_comment_editor_type	=	$bsettings['comment_editor_type'] ? $bsettings['comment_editor_type'] : 'minimal-visual';
+		//$btn_comment_editor_type	=	$bsettings['comment_editor_type'] ? $bsettings['comment_editor_type'] : 'minimal-visual';
 		$btn_comments_editor_login 	=	$bsettings['comment_editor_login'] ? $bsettings['comment_editor_login'] : true;
 		$btn_teeny_enable 			=	$bsettings['enable_teeny_editor'];
 		/*

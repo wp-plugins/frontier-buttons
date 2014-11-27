@@ -2,16 +2,18 @@
 Contributors: finnj
 Donate link: 
 Tags: frontend, frontier, wp-editor, tinymce, buttons, frontier-buttons
-Requires at least: 3.9
-Tested up to: 4.0
-Stable tag: 1.2.1
+Requires at least: 3.4
+Tested up to: 4.0.1
+Stable tag: 1.3.0
 License: GPL v3 or later
  
-Control and organize the button layout of your WP editor toolbar. Adds Smileys, Table control, Search/Replace & Preview to WP Editor using tinyMCE standard plugins. Use visual editor for comments - works from WP 3.9
+Control and organize the button layout of your WP editor toolbar. Adds Smileys, Table control, Search/Replace & Preview to WP Editor using tinyMCE standard plugins. Use visual editor for comments
 
 == Description ==
 
 Frontier Buttons is intentionally made simple :)
+
+NEW: Support for Wordpress versions before 3.9
 
 = Main Features =
 * Enable to design your own toolbar setup for your site.
@@ -20,9 +22,11 @@ Frontier Buttons is intentionally made simple :)
 ** Table Control
 ** Smileys (emoticons)
 ** Search & Replace
-* Only works from Wordpress version 3.9
+
 
 This plugin has been created to separate the tinyMCE editor options from [Frontier Post plugin ](http://wordpress.org/plugins/frontier-post/) 
+
+See also [Frontier Set Featured plugin ](http://wordpress.org/plugins/frontier-set-featured/) 
 
 The plugin is simple with no custom js, and only enables tinyMCE standard plugins and controls - If you want a more sophisticated plugin you should look at [WP Edit plugin ](http://wordpress.org/plugins/wp-edit/) 
 
@@ -41,7 +45,7 @@ Let me know what you think, and if you have enhancement requests or problems let
 == Frequently Asked Questions ==
 
 = Known Issues and limitations =
-* Only works from Wordpress 4
+* None at the moment :)
 
 = Translations =
 * Please post a link in support to translation files and I will include them in next release.
@@ -60,6 +64,9 @@ Let me know what you think, and if you have enhancement requests or problems let
 2. Settings page
 
 == Changelog ==
+
+= 1.3.0 =
+* Support for Wordpress versions before 3.9
 
 = 1.2.1 =
 * Removed error message - frontier-buttons.php line 160
