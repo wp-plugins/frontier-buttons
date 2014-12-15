@@ -65,6 +65,10 @@ Let me know what you think, and if you have enhancement requests or problems let
 
 == Changelog ==
 
+
+= 1.3.3 =
+* Disabled media button for comments editor
+
 = 1.3.2 =
 * Tested and works with Wordpres version 4.1
 
