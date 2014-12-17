@@ -4,12 +4,12 @@ Plugin Name: Frontier Buttons
 Plugin URI: http://wordpress.org/plugins/frontier-buttons/
 Description: Control and organize the button layout of your WP editor toolbar. Adds Smileys, Table control, Search/Replace & Preview to WP Editor using tinyMCE standard plugins. Use visual editor for comments.
 Author: finnj
-Version: 1.3.4
+Version: 1.3.5
 Author URI: http://wordpress.org/plugins/frontier-buttons/
 */
 
 // define constants
-define('FRONTIER_BUTTONS_VERSION', "1.3.4"); 
+define('FRONTIER_BUTTONS_VERSION', "1.3.5"); 
 
 
 //*************************************************************************
@@ -154,26 +154,29 @@ add_filter( 'teeny_mce_buttons', 'frontier_toolbar_teeny' );
 function frontier_buttons_comments_editor( $fields ) 
 	{
 	$bsettings		= get_option("frontier_buttons_settings") ? get_option("frontier_buttons_settings") : $std_frontier_settings ;		
-	$btn_comment_editor_enable 	=	$bsettings['enable_comment_editor'] ? $bsettings['enable_comment_editor'] : false;
-	$btn_comments_editor_login 	=	$bsettings['comment_editor_login'] ? $bsettings['comment_editor_login'] : true;
+	$btn_comment_editor_enable 	=	isset($bsettings['enable_comment_editor']) ? $bsettings['enable_comment_editor'] : "false";
+	$btn_comments_editor_login 	=	isset($bsettings['comment_editor_login']) ? $bsettings['comment_editor_login'] : "true";
 	
-	if ($btn_comment_editor_enable)
+	//error_log(print_r($bsettings, true));
+	
+	if ( $btn_comment_editor_enable == "true" )
 		{
 		// check if user is required to be logged in to use the editor
-		if (($btn_comments_editor_login == true) && !is_user_logged_in() )
+		if (($btn_comments_editor_login == "true") && !is_user_logged_in() )
 			return;
 		else
 			{
 			
-			$btn_quicktags_enable	 	=	($bsettings['visual_editor'] == true) ? false : true; 
-			$btn_cmt_editor_lines 		=	$bsettings['editor_lines'] ? $bsettings['editor_lines'] : 5;
-			$btn_teeny_enable 			=	$bsettings['enable_teeny_editor'] ? $bsettings['enable_teeny_editor'] : false;
+			$btn_quicktags_enable	 	=	($bsettings['visual_editor'] == "true") ? false : true; 
+			$btn_cmt_editor_lines 		=	$bsettings['editor_lines'] > 0 ? $bsettings['editor_lines'] : 5;
+			// not active
+			$btn_teeny_enable 			=	($bsettings['enable_teeny_editor'] == "true") ? true : false;
 			
 			ob_start();
 			wp_editor( '', 'comment', array(
 			'teeny' 		=> true,
-			'textarea_rows' => 5,
-			'media_buttons' => true,
+			'textarea_rows' => $btn_cmt_editor_lines,
+			'media_buttons' => false,
 			'quicktags'		=> $btn_quicktags_enable
 			));
 			$fields['comment_field'] = ob_get_clean();

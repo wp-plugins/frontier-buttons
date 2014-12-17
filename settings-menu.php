@@ -27,11 +27,11 @@ function frontier_buttons_settings_page()
 				
 				// get form data, and save it
 				$bsettings_save = array(
-							'visual_editor' 		=> (isset($_POST[ "btn_visual_editor_enable"]) 		? $_POST[ "btn_visual_editor_enable"] 	: false),
+							'visual_editor' 		=> (isset($_POST[ "btn_visual_editor_enable"]) 	? $_POST[ "btn_visual_editor_enable"] 		: "false"),
 							'editor_lines'			=> (isset($_POST[ "btn_cmt_editor_lines"]) 		? $_POST[ "btn_cmt_editor_lines"] 			: 5),
-							'enable_comment_editor'	=> (isset($_POST[ "btn_comment_editor_enable"]) ? $_POST[ "btn_comment_editor_enable"] 		: false),
-							'comment_editor_login'	=> (isset($_POST[ "btn_comments_editor_login"]) ? $_POST[ "btn_comments_editor_login"] 		: false),
-							'enable_teeny_editor'	=> (isset($_POST[ "btn_teeny_enable"]) 			? $_POST[ "btn_teeny_enable"] 				: false)
+							'enable_comment_editor'	=> (isset($_POST[ "btn_comment_editor_enable"]) ? $_POST[ "btn_comment_editor_enable"] 		: "false"),
+							'comment_editor_login'	=> (isset($_POST[ "btn_comment_editor_login"]) ? $_POST[ "btn_comment_editor_login"] 		: "false"),
+							'enable_teeny_editor'	=> (isset($_POST[ "btn_teeny_enable"]) 			? $_POST[ "btn_teeny_enable"] 				: "false")
 							);
 			
 				update_option("frontier_buttons_settings", $bsettings_save);
@@ -81,7 +81,7 @@ function frontier_buttons_settings_page()
 		$btn_cmt_editor_lines 		=	$bsettings['editor_lines'] ? $bsettings['editor_lines'] : 5;
 		$btn_comment_editor_enable 	=	$bsettings['enable_comment_editor'];
 		//$btn_comment_editor_type	=	$bsettings['comment_editor_type'] ? $bsettings['comment_editor_type'] : 'minimal-visual';
-		$btn_comments_editor_login 	=	$bsettings['comment_editor_login'] ? $bsettings['comment_editor_login'] : true;
+		$btn_comment_editor_login 	=	$bsettings['comment_editor_login'];
 		$btn_teeny_enable 			=	$bsettings['enable_teeny_editor'];
 		/*
 		print_r("</br>after load of settings</br>");
@@ -106,7 +106,7 @@ function frontier_buttons_settings_page()
 					<td><?php _e("Enable editor for comments", "frontier-buttons"); ?>:</td>
 					<td><center><input type="checkbox" name="btn_comment_editor_enable" value="true" <?php echo ($btn_comment_editor_enable == "true") ? 'checked':''; ?>></center></td>
 					<td><?php _e("Editor for comments only for logged in users", "frontier-buttons"); ?>:</td>
-					<td><center><input type="checkbox" name="btn_comments_editor_login" value="true" <?php echo ($btn_comments_editor_login == "true") ? 'checked':''; ?>></center></td>
+					<td><center><input type="checkbox" name="btn_comment_editor_login" value="true" <?php echo ($btn_comment_editor_login == "true") ? 'checked':''; ?>></center></td>
 				</tr><tr>
 					<td><?php _e("Use visual editor for comments", "frontier-buttons"); ?>:</td>
 					<td><center><input type="checkbox" name="btn_visual_editor_enable" value="true" <?php echo ($btn_visual_editor_enable == "true") ? 'checked':''; ?>></center></td>
