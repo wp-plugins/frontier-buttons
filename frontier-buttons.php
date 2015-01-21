@@ -4,12 +4,12 @@ Plugin Name: Frontier Buttons
 Plugin URI: http://wordpress.org/plugins/frontier-buttons/
 Description: Control and organize the button layout of your WP editor toolbar. Adds Smileys, Table control, Search/Replace & Preview to WP Editor using tinyMCE standard plugins. Use visual editor for comments.
 Author: finnj
-Version: 1.3.6
+Version: 1.3.7
 Author URI: http://wordpress.org/plugins/frontier-buttons/
 */
 
 // define constants
-define('FRONTIER_BUTTONS_VERSION', "1.3.6"); 
+define('FRONTIER_BUTTONS_VERSION', "1.3.7"); 
 
 
 //*************************************************************************
@@ -229,7 +229,7 @@ add_filter( 'comment_form_defaults', 'frontier_buttons_comments_editor' );
 
 $bsettings	= get_option("frontier_buttons_settings", array());		
 
-if ( array_key_exists('comment_editor_fix', $bsettings) && $bsettings['comment_editor_fix'] == "true" )
+if ( array_key_exists('enable_comment_editor', $bsettings) && ($bsettings['enable_comment_editor'] == "true") && array_key_exists('comment_editor_fix', $bsettings) && ($bsettings['comment_editor_fix'] == "true") )
 	{		
 	//error_log("Comment fix check	: ".$bsettings['comment_editor_fix']);
 	
