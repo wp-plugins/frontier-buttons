@@ -4,8 +4,8 @@
 //*******************************************************************************************************
 
 $frontier_buttons_empty	= "#empty#"; //Identifier for empty toolbar button 
-$editor_types 			= array('full' => __('Full Editor', 'frontier-buttons'), 'minimal-visual' => __('Minimal Visual', 'frontier-buttons'), 'minimal-html' => __('Minimal-Html', 'frontier-buttons'), 'text' => __('Text Only', 'frontier-buttons'));
-$comment_editor_types	= array_slice($editor_types, 1);
+$fb_editor_types 			= array('full' => __('Full Editor', 'frontier-buttons'), 'teeny' => __('Visual simple', 'frontier-buttons'), 'quicktags' => __('Quicktags', 'frontier-buttons'));
+//$comment_editor_types	= array_slice($fp_editor_types, 1);
 
 $std_frontier_settings = array(
 							'visual_editor'			=> true,
@@ -13,6 +13,7 @@ $std_frontier_settings = array(
 							'enable_comment_editor'	=> false,
 							'comment_editor_type'	=> 'teeny',
 							'comment_editor_login'	=> true,
+							'comment_editor_fix'	=> true,
 							'enable_teeny_editor'	=> false
 							);
 
@@ -38,9 +39,6 @@ $std_frontier_buttons_teeny	= array(
 							'alignjustify',
 							'link', 
 							'unlink',
-							'code',
-							'emoticons', 
-							'preview'
 						);
 						
 $std_frontier_buttons_cmt	= array(
@@ -100,6 +98,7 @@ $frontier_built_in_buttons = array(
 						'wp_page' 		=> __('Page break', 'frontier-buttons'), 
 						'subscript' 	=> __('Subscript', 'frontier-buttons'), 
 						'superscript' 	=> __('Superscript', 'frontier-buttons'),
+						'code' 			=> __('Code', 'frontier-buttons'),
 						'|' 			=> __('Separator', 'frontier-buttons')
 						);
 					

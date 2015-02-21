@@ -3,8 +3,8 @@ Contributors: finnj
 Donate link: 
 Tags: frontend, frontier, wp-editor, tinymce, buttons, frontier-buttons
 Requires at least: 3.4
-Tested up to: 4.0.1
-Stable tag: 1.3.0
+Tested up to: 4.1.1
+Stable tag: 1.4.0
 License: GPL v3 or later
  
 Control and organize the button layout of your WP editor toolbar. Adds Smileys, Table control, Search/Replace & Preview to WP Editor using tinyMCE standard plugins. Use visual editor for comments
@@ -64,6 +64,28 @@ Let me know what you think, and if you have enhancement requests or problems let
 2. Settings page
 
 == Changelog ==
+
+= 1.4.0 =
+* Tested up to: 4.1.1
+
+= 1.3.9 =
+* Only enable comment reply fix if Frontier Buttons is enabled for comments.
+
+= 1.3.6 =
+* Added fix for visual editor not working on comments reply
+* Select editor layout for comments
+
+= 1.3.5 =
+* Fixed issues with saving settings
+
+= 1.3.4 =
+* Disabled media button for comments editor
+
+= 1.3.2 =
+* Tested and works with Wordpres version 4.1
+
+= 1.3.1 =
+* New function: frontier_buttons_full_buttons() - Will return array with theme_advanced_buttons1-4, can be called from themes and other plugins 
 
 = 1.3.0 =
 * Support for Wordpress versions before 3.9

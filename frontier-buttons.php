@@ -4,12 +4,12 @@ Plugin Name: Frontier Buttons
 Plugin URI: http://wordpress.org/plugins/frontier-buttons/
 Description: Control and organize the button layout of your WP editor toolbar. Adds Smileys, Table control, Search/Replace & Preview to WP Editor using tinyMCE standard plugins. Use visual editor for comments.
 Author: finnj
-Version: 1.3.0
+Version: 1.4.0
 Author URI: http://wordpress.org/plugins/frontier-buttons/
 */
 
 // define constants
-define('FRONTIER_BUTTONS_VERSION', "1.2.1"); 
+define('FRONTIER_BUTTONS_VERSION', "1.4.0"); 
 
 
 //*************************************************************************
@@ -153,37 +153,130 @@ add_filter( 'teeny_mce_buttons', 'frontier_toolbar_teeny' );
 
 function frontier_buttons_comments_editor( $fields ) 
 	{
-	$bsettings		= get_option("frontier_buttons_settings") ? get_option("frontier_buttons_settings") : $std_frontier_settings ;		
-	$btn_comment_editor_enable 	=	$bsettings['enable_comment_editor'] ? $bsettings['enable_comment_editor'] : false;
-	$btn_comments_editor_login 	=	$bsettings['comment_editor_login'] ? $bsettings['comment_editor_login'] : true;
+	$bsettings					= get_option("frontier_buttons_settings") ? get_option("frontier_buttons_settings") : $std_frontier_settings ;		
+	$btn_comment_editor_enable 	= isset($bsettings['enable_comment_editor']) ? $bsettings['enable_comment_editor'] : "false";
+	$btn_comments_editor_login 	= isset($bsettings['comment_editor_login']) ? $bsettings['comment_editor_login'] : "true";
+	$btn_comment_editor_fix 	= array_key_exists('comment_editor_fix', $bsettings) ? $bsettings['comment_editor_fix'] : false;
+	$btn_quicktags_enable		= true;
+	$btn_teeny_enable			= true;
 	
-	if ($btn_comment_editor_enable)
+	if ( $btn_comment_editor_enable == "true" )
 		{
 		// check if user is required to be logged in to use the editor
-		if (($btn_comments_editor_login == true) && !is_user_logged_in() )
-			return;
+		if (($btn_comments_editor_login == "true") && !is_user_logged_in() )
+			return $fields;
 		else
 			{
+		
+		
+			$btn_quicktags_enable	 	=	($bsettings['visual_editor'] == "true") ? false : true; 
+			$btn_cmt_editor_lines 		=	$bsettings['editor_lines'] > 0 ? $bsettings['editor_lines'] : 5;
+			// not active
+			$btn_teeny_enable 			=	($bsettings['enable_teeny_editor'] == "true") ? true : false;
 			
-			$btn_quicktags_enable	 	=	($bsettings['visual_editor'] == true) ? false : true; 
-			$btn_cmt_editor_lines 		=	$bsettings['editor_lines'] ? $bsettings['editor_lines'] : 5;
-			$btn_teeny_enable 			=	$bsettings['enable_teeny_editor'] ? $bsettings['enable_teeny_editor'] : false;
+			/*
+			$tmp_options = get_option("frontier_buttons_toolbars");
+			$tmp_teeny_buttons  = array(
+				'theme_advanced_buttons1' 	=> implode(',', $tmp_options[0]),
+				);
+			*/
 			
+			if ( array_key_exists('comment_editor_type', $bsettings) )
+				$tmp_editor_type =  $bsettings['comment_editor_type'];
+			else
+				$tmp_editor_type = 'teeny';
+			
+			switch($tmp_editor_type)
+				{
+				case "full":  
+					$tmp_args = array(
+					'textarea_rows' => $btn_cmt_editor_lines,
+					'media_buttons' => false,
+					'quicktags'		=> false
+					);	
+				break;
+				
+				case "quicktags":  
+					$tmp_args = array(
+					'textarea_rows' => $btn_cmt_editor_lines,
+					'media_buttons' => false,
+					'quicktags'		=> true
+					);
+				break;
+				
+				default:  
+					$tmp_args = array(
+					'teeny' 		=> true,
+					'textarea_rows' => $btn_cmt_editor_lines,
+					'media_buttons' => false,
+					'quicktags'		=> false,
+					);
+				break;
+				} // end switch
+			
+			//error_log(print_r($tmp_teeny_buttons, true));
 			ob_start();
-			wp_editor( '', 'comment', array(
-			'teeny' 		=> true,
-			'textarea_rows' => 5,
-			'quicktags'		=> $btn_quicktags_enable
-			));
+			wp_editor( '', 'comment', $tmp_args);
 			$fields['comment_field'] = ob_get_clean();
-			return $fields;
-
-			}
+			return $fields;	
+		
+			} // end login check
+		
+		} //end visual comment editor enabled
+	else
+		{
+		return $fields;
 		}
-	}		
-	add_filter( 'comment_form_defaults', 'frontier_buttons_comments_editor' );
+	} // end function		
+add_filter( 'comment_form_defaults', 'frontier_buttons_comments_editor' );
 
+//******************************************************************************
+// Enable fix for reply to comments not working with teeny editor
+//******************************************************************************
 
+$bsettings	= get_option("frontier_buttons_settings", array());		
+
+if ( array_key_exists('enable_comment_editor', $bsettings) && ($bsettings['enable_comment_editor'] == "true") && array_key_exists('comment_editor_fix', $bsettings) && ($bsettings['comment_editor_fix'] == "true") )
+	{		
+	//error_log("Comment fix check	: ".$bsettings['comment_editor_fix']);
+	
+	// wp_editor doesn't work when clicking reply. Here is the fix.
+	add_action( 'wp_enqueue_scripts', '__THEME_PREFIX__scripts' );
+	function __THEME_PREFIX__scripts() 
+		{
+		wp_enqueue_script('jquery');
+		}
+	
+	add_filter( 'comment_reply_link', '__THEME_PREFIX__comment_reply_link' );
+	function __THEME_PREFIX__comment_reply_link($link) 
+		{
+		return str_replace( 'onclick=', 'data-onclick=', $link );
+		}
+	
+	add_action( 'wp_head', '__THEME_PREFIX__wp_head' );
+	function __THEME_PREFIX__wp_head() 
+		{
+	?>
+	<script type="text/javascript">
+	  jQuery(function($){
+		$('.comment-reply-link').click(function(e){
+		  e.preventDefault();
+		  var args = $(this).data('onclick');
+		  args = args.replace(/.*\(|\)/gi, '').replace(/\"|\s+/g, '');
+		  args = args.split(',');
+		  tinymce.EditorManager.execCommand('mceRemoveEditor', true, 'comment');
+		  addComment.moveForm.apply( addComment, args );
+		  tinymce.EditorManager.execCommand('mceAddEditor', true, 'comment');
+		});
+	  });
+	</script>
+	<?php 
+		} 
+	}
+
+//******************************************************************************
+// End fix 
+//******************************************************************************
 
 //*************************************************************************
 // Force default visual editor
@@ -193,6 +286,25 @@ function frontier_buttons_default_editor() {
 		return 'tinymce';
 }
 add_filter( 'wp_default_editor', 'frontier_buttons_default_editor' );	
+
+//*************************************************************************
+// Expose function to return editor (full editor) buttons to thee and other plugins
+//*************************************************************************	
+
+function frontier_buttons_full_buttons()
+	{
+	$tmp_options = get_option("frontier_buttons_toolbars");
+	$tinymce_options = array(
+			'theme_advanced_buttons1' 	=> implode(',', $tmp_options[0]),
+			'theme_advanced_buttons2' 	=> implode(',', $tmp_options[0]),
+			'theme_advanced_buttons3' 	=> implode(',', $tmp_options[0]),
+			'theme_advanced_buttons4' 	=> implode(',', $tmp_options[0])
+			);
+	return $tinymce_options;
+	}
+
+//add_action("init","frontier_buttons_full_buttons");
+
 		
 //*************************************************************************
 // Load settings menu
