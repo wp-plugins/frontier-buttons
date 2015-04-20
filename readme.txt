@@ -3,7 +3,7 @@ Contributors: finnj
 Donate link: 
 Tags: frontend, frontier, wp-editor, tinymce, buttons, frontier-buttons
 Requires at least: 3.4
-Tested up to: 4.1.1
+Tested up to: 4.2
 Stable tag: 1.4.0
 License: GPL v3 or later
  
